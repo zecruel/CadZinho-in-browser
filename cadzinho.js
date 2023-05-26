@@ -82,7 +82,7 @@ var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
               num++;
             }
             total = Math.ceil(total * Module.expectedDataFileDownloads/num);
-            if (Module['setStatus']) Module['setStatus']('Downloading data... (' + loaded + '/' + total + ')');
+            if (Module['setStatus']) Module['setStatus'](`Downloading data... (${loaded}/${total})`);
           } else if (!Module.dataFileDownloads) {
             if (Module['setStatus']) Module['setStatus']('Downloading data...');
           }
@@ -138,7 +138,7 @@ Module['FS_createPath']("/script", "xlsxwriter", true, true);
         open: function(mode, name) {
           this.name = name;
           this.requests[name] = this;
-          Module['addRunDependency']('fp ' + this.name);
+          Module['addRunDependency'](`fp ${this.name}`);
         },
         send: function() {},
         onload: function() {
@@ -149,7 +149,7 @@ Module['FS_createPath']("/script", "xlsxwriter", true, true);
           var that = this;
           // canOwn this data in the filesystem, it is a slide into the heap that will never change
           Module['FS_createDataFile'](this.name, null, byteArray, true, true, true);
-          Module['removeRunDependency']('fp ' + that.name);
+          Module['removeRunDependency'](`fp ${that.name}`);
           this.requests[this.name] = null;
         }
       };
@@ -193,7 +193,7 @@ Module['FS_createPath']("/script", "xlsxwriter", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/lang/en_GB.lua", "start": 0, "end": 25798}, {"filename": "/lang/pt_BR.lua", "start": 25798, "end": 52760}, {"filename": "/samples/Brasil.dxf", "start": 52760, "end": 556352}, {"filename": "/samples/brasil_flag.dxf", "start": 556352, "end": 674591}, {"filename": "/samples/bubble.png", "start": 674591, "end": 1750807}, {"filename": "/samples/cmplx_ltypes.dxf", "start": 1750807, "end": 1766679}, {"filename": "/samples/color_table.dxf", "start": 1766679, "end": 1894344}, {"filename": "/samples/dim_angular.dxf", "start": 1894344, "end": 1911863}, {"filename": "/samples/flag.dxf", "start": 1911863, "end": 2015976}, {"filename": "/samples/gears.dxf", "start": 2015976, "end": 2183382}, {"filename": "/samples/gears2.dxf", "start": 2183382, "end": 2356506}, {"filename": "/samples/linear_dim.dxf", "start": 2356506, "end": 2368814}, {"filename": "/samples/logo.dxf", "start": 2368814, "end": 2396200}, {"filename": "/samples/ortho_iso.dxf", "start": 2396200, "end": 2411062}, {"filename": "/samples/script_world.dxf", "start": 2411062, "end": 2440706}, {"filename": "/samples/shx_fonts.dxf", "start": 2440706, "end": 2458306}, {"filename": "/samples/title_a1.dxf", "start": 2458306, "end": 2475260}, {"filename": "/samples/transp_img.dxf", "start": 2475260, "end": 2481757}, {"filename": "/samples/transp_img.png", "start": 2481757, "end": 2844049}, {"filename": "/script/batch_print.lua", "start": 2844049, "end": 2846978}, {"filename": "/script/batch_print_plugin.lua", "start": 2846978, "end": 2850877}, {"filename": "/script/block.lua", "start": 2850877, "end": 2851583}, {"filename": "/script/catenary.lua", "start": 2851583, "end": 2854336}, {"filename": "/script/catenary2.lua", "start": 2854336, "end": 2859056}, {"filename": "/script/catenary3.lua", "start": 2859056, "end": 2862234}, {"filename": "/script/catenary_plugin.lua", "start": 2862234, "end": 2869520}, {"filename": "/script/color.lua", "start": 2869520, "end": 2871180}, {"filename": "/script/demo.xlsx", "start": 2871180, "end": 2876546}, {"filename": "/script/hatch.lua", "start": 2876546, "end": 2876680}, {"filename": "/script/hyperbolic.lua", "start": 2876680, "end": 2880322}, {"filename": "/script/invol_gear.lua", "start": 2880322, "end": 2885879}, {"filename": "/script/invol_gear2.lua", "start": 2885879, "end": 2892440}, {"filename": "/script/invol_gear3.lua", "start": 2892440, "end": 2900431}, {"filename": "/script/reg_poly.lua", "start": 2900431, "end": 2900921}, {"filename": "/script/reg_poly_dyn.lua", "start": 2900921, "end": 2902498}, {"filename": "/script/reg_poly_plugin.lua", "start": 2902498, "end": 2905995}, {"filename": "/script/reg_poly_w.lua", "start": 2905995, "end": 2906577}, {"filename": "/script/round.lua", "start": 2906577, "end": 2909197}, {"filename": "/script/selection.lua", "start": 2909197, "end": 2909269}, {"filename": "/script/test.lua", "start": 2909269, "end": 2911267}, {"filename": "/script/test_dyn.lua", "start": 2911267, "end": 2912103}, {"filename": "/script/test_win.lua", "start": 2912103, "end": 2912526}, {"filename": "/script/xlsx_lua.lua", "start": 2912526, "end": 2919000}, {"filename": "/script/xlsx_write_demo.lua", "start": 2919000, "end": 2919763}, {"filename": "/script/xlsxwriter/LICENSE.txt", "start": 2919763, "end": 2920866}, {"filename": "/script/xlsxwriter/README.md", "start": 2920866, "end": 2922447}, {"filename": "/script/xlsxwriter/app.lua", "start": 2922447, "end": 2927614}, {"filename": "/script/xlsxwriter/contenttypes.lua", "start": 2927614, "end": 2933868}, {"filename": "/script/xlsxwriter/core.lua", "start": 2933868, "end": 2938691}, {"filename": "/script/xlsxwriter/format.lua", "start": 2938691, "end": 2957949}, {"filename": "/script/xlsxwriter/packager.lua", "start": 2957949, "end": 2975051}, {"filename": "/script/xlsxwriter/relationships.lua", "start": 2975051, "end": 2978355}, {"filename": "/script/xlsxwriter/sharedstrings.lua", "start": 2978355, "end": 2982123}, {"filename": "/script/xlsxwriter/strict.lua", "start": 2982123, "end": 2983232}, {"filename": "/script/xlsxwriter/styles.lua", "start": 2983232, "end": 3002231}, {"filename": "/script/xlsxwriter/theme.lua", "start": 3002231, "end": 3010506}, {"filename": "/script/xlsxwriter/utility.lua", "start": 3010506, "end": 3020140}, {"filename": "/script/xlsxwriter/workbook.lua", "start": 3020140, "end": 3046514}, {"filename": "/script/xlsxwriter/worksheet.lua", "start": 3046514, "end": 3121982}, {"filename": "/script/xlsxwriter/xlsxwriter_lua.pdf", "start": 3121982, "end": 4670201}, {"filename": "/script/xlsxwriter/xmlwriter.lua", "start": 4670201, "end": 4676645}], "remote_package_size": 4676645});
+    loadPackage({"files": [{"filename": "/lang/en_GB.lua", "start": 0, "end": 26332}, {"filename": "/lang/pt_BR.lua", "start": 26332, "end": 53835}, {"filename": "/samples/Brasil.dxf", "start": 53835, "end": 557427}, {"filename": "/samples/brasil_flag.dxf", "start": 557427, "end": 675666}, {"filename": "/samples/bubble.png", "start": 675666, "end": 1751882}, {"filename": "/samples/cmplx_ltypes.dxf", "start": 1751882, "end": 1767754}, {"filename": "/samples/color_table.dxf", "start": 1767754, "end": 1895419}, {"filename": "/samples/dim_angular.dxf", "start": 1895419, "end": 1912938}, {"filename": "/samples/flag.dxf", "start": 1912938, "end": 2017051}, {"filename": "/samples/gears.dxf", "start": 2017051, "end": 2184457}, {"filename": "/samples/gears2.dxf", "start": 2184457, "end": 2357581}, {"filename": "/samples/linear_dim.dxf", "start": 2357581, "end": 2369889}, {"filename": "/samples/logo.dxf", "start": 2369889, "end": 2397275}, {"filename": "/samples/ortho_iso.dxf", "start": 2397275, "end": 2412137}, {"filename": "/samples/script_world.dxf", "start": 2412137, "end": 2441781}, {"filename": "/samples/shx_fonts.dxf", "start": 2441781, "end": 2459381}, {"filename": "/samples/title_a1.dxf", "start": 2459381, "end": 2476335}, {"filename": "/samples/transp_img.dxf", "start": 2476335, "end": 2482832}, {"filename": "/samples/transp_img.png", "start": 2482832, "end": 2845124}, {"filename": "/script/batch_print.lua", "start": 2845124, "end": 2848053}, {"filename": "/script/batch_print_plugin.lua", "start": 2848053, "end": 2851952}, {"filename": "/script/block.lua", "start": 2851952, "end": 2852658}, {"filename": "/script/catenary.lua", "start": 2852658, "end": 2855411}, {"filename": "/script/catenary2.lua", "start": 2855411, "end": 2860131}, {"filename": "/script/catenary3.lua", "start": 2860131, "end": 2863309}, {"filename": "/script/catenary_plugin.lua", "start": 2863309, "end": 2870595}, {"filename": "/script/color.lua", "start": 2870595, "end": 2872255}, {"filename": "/script/demo.xlsx", "start": 2872255, "end": 2877621}, {"filename": "/script/hatch.lua", "start": 2877621, "end": 2877755}, {"filename": "/script/hyperbolic.lua", "start": 2877755, "end": 2881397}, {"filename": "/script/invol_gear.lua", "start": 2881397, "end": 2886954}, {"filename": "/script/invol_gear2.lua", "start": 2886954, "end": 2893515}, {"filename": "/script/invol_gear3.lua", "start": 2893515, "end": 2901506}, {"filename": "/script/reg_poly.lua", "start": 2901506, "end": 2901996}, {"filename": "/script/reg_poly_dyn.lua", "start": 2901996, "end": 2903573}, {"filename": "/script/reg_poly_plugin.lua", "start": 2903573, "end": 2907070}, {"filename": "/script/reg_poly_w.lua", "start": 2907070, "end": 2907652}, {"filename": "/script/round.lua", "start": 2907652, "end": 2910272}, {"filename": "/script/selection.lua", "start": 2910272, "end": 2910344}, {"filename": "/script/test.lua", "start": 2910344, "end": 2912342}, {"filename": "/script/test_dyn.lua", "start": 2912342, "end": 2913178}, {"filename": "/script/test_win.lua", "start": 2913178, "end": 2913601}, {"filename": "/script/xlsx_lua.lua", "start": 2913601, "end": 2920075}, {"filename": "/script/xlsx_write_demo.lua", "start": 2920075, "end": 2920838}, {"filename": "/script/xlsxwriter/LICENSE.txt", "start": 2920838, "end": 2921941}, {"filename": "/script/xlsxwriter/README.md", "start": 2921941, "end": 2923522}, {"filename": "/script/xlsxwriter/app.lua", "start": 2923522, "end": 2928689}, {"filename": "/script/xlsxwriter/contenttypes.lua", "start": 2928689, "end": 2934943}, {"filename": "/script/xlsxwriter/core.lua", "start": 2934943, "end": 2939766}, {"filename": "/script/xlsxwriter/format.lua", "start": 2939766, "end": 2959024}, {"filename": "/script/xlsxwriter/packager.lua", "start": 2959024, "end": 2976126}, {"filename": "/script/xlsxwriter/relationships.lua", "start": 2976126, "end": 2979430}, {"filename": "/script/xlsxwriter/sharedstrings.lua", "start": 2979430, "end": 2983198}, {"filename": "/script/xlsxwriter/strict.lua", "start": 2983198, "end": 2984307}, {"filename": "/script/xlsxwriter/styles.lua", "start": 2984307, "end": 3003306}, {"filename": "/script/xlsxwriter/theme.lua", "start": 3003306, "end": 3011581}, {"filename": "/script/xlsxwriter/utility.lua", "start": 3011581, "end": 3021215}, {"filename": "/script/xlsxwriter/workbook.lua", "start": 3021215, "end": 3047589}, {"filename": "/script/xlsxwriter/worksheet.lua", "start": 3047589, "end": 3123057}, {"filename": "/script/xlsxwriter/xlsxwriter_lua.pdf", "start": 3123057, "end": 4671276}, {"filename": "/script/xlsxwriter/xmlwriter.lua", "start": 4671276, "end": 4677720}], "remote_package_size": 4677720});
 
   })();
 
@@ -391,7 +391,7 @@ if (ENVIRONMENT_IS_SHELL) {
           if (toThrow && typeof toThrow == 'object' && toThrow.stack) {
             toLog = [toThrow, toThrow.stack];
           }
-          err('exiting due to exception: ' + toLog);
+          err(`exiting due to exception: ${toLog}`);
         }
         quit(status);
       });
@@ -477,7 +477,7 @@ read_ = (url) => {
 }
 
 var out = Module['print'] || console.log.bind(console);
-var err = Module['printErr'] || console.warn.bind(console);
+var err = Module['printErr'] || console.error.bind(console);
 
 // Merge back in the overrides
 Object.assign(Module, moduleOverrides);
@@ -1183,30 +1183,30 @@ function unexportedRuntimeSymbol(sym) {
 // Used by XXXXX_DEBUG settings to output debug messages.
 function dbg(text) {
   // TODO(sbc): Make this configurable somehow.  Its not always convenient for
-  // logging to show up as errors.
-  console.error.apply(console, arguments);
+  // logging to show up as warnings.
+  console.warn.apply(console, arguments);
 }
 
 // end include: runtime_debug.js
 // === Body ===
 
 var ASM_CONSTS = {
-  13309008: () => { if (typeof(AudioContext) !== 'undefined') { return true; } else if (typeof(webkitAudioContext) !== 'undefined') { return true; } return false; },  
- 13309155: () => { if ((typeof(navigator.mediaDevices) !== 'undefined') && (typeof(navigator.mediaDevices.getUserMedia) !== 'undefined')) { return true; } else if (typeof(navigator.webkitGetUserMedia) !== 'undefined') { return true; } return false; },  
- 13309389: ($0) => { if(typeof(Module['SDL2']) === 'undefined') { Module['SDL2'] = {}; } var SDL2 = Module['SDL2']; if (!$0) { SDL2.audio = {}; } else { SDL2.capture = {}; } if (!SDL2.audioContext) { if (typeof(AudioContext) !== 'undefined') { SDL2.audioContext = new AudioContext(); } else if (typeof(webkitAudioContext) !== 'undefined') { SDL2.audioContext = new webkitAudioContext(); } if (SDL2.audioContext) { autoResumeAudioContext(SDL2.audioContext); } } return SDL2.audioContext === undefined ? -1 : 0; },  
- 13309882: () => { var SDL2 = Module['SDL2']; return SDL2.audioContext.sampleRate; },  
- 13309950: ($0, $1, $2, $3) => { var SDL2 = Module['SDL2']; var have_microphone = function(stream) { if (SDL2.capture.silenceTimer !== undefined) { clearTimeout(SDL2.capture.silenceTimer); SDL2.capture.silenceTimer = undefined; } SDL2.capture.mediaStreamNode = SDL2.audioContext.createMediaStreamSource(stream); SDL2.capture.scriptProcessorNode = SDL2.audioContext.createScriptProcessor($1, $0, 1); SDL2.capture.scriptProcessorNode.onaudioprocess = function(audioProcessingEvent) { if ((SDL2 === undefined) || (SDL2.capture === undefined)) { return; } audioProcessingEvent.outputBuffer.getChannelData(0).fill(0.0); SDL2.capture.currentCaptureBuffer = audioProcessingEvent.inputBuffer; dynCall('vi', $2, [$3]); }; SDL2.capture.mediaStreamNode.connect(SDL2.capture.scriptProcessorNode); SDL2.capture.scriptProcessorNode.connect(SDL2.audioContext.destination); SDL2.capture.stream = stream; }; var no_microphone = function(error) { }; SDL2.capture.silenceBuffer = SDL2.audioContext.createBuffer($0, $1, SDL2.audioContext.sampleRate); SDL2.capture.silenceBuffer.getChannelData(0).fill(0.0); var silence_callback = function() { SDL2.capture.currentCaptureBuffer = SDL2.capture.silenceBuffer; dynCall('vi', $2, [$3]); }; SDL2.capture.silenceTimer = setTimeout(silence_callback, ($1 / SDL2.audioContext.sampleRate) * 1000); if ((navigator.mediaDevices !== undefined) && (navigator.mediaDevices.getUserMedia !== undefined)) { navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then(have_microphone).catch(no_microphone); } else if (navigator.webkitGetUserMedia !== undefined) { navigator.webkitGetUserMedia({ audio: true, video: false }, have_microphone, no_microphone); } },  
- 13311602: ($0, $1, $2, $3) => { var SDL2 = Module['SDL2']; SDL2.audio.scriptProcessorNode = SDL2.audioContext['createScriptProcessor']($1, 0, $0); SDL2.audio.scriptProcessorNode['onaudioprocess'] = function (e) { if ((SDL2 === undefined) || (SDL2.audio === undefined)) { return; } SDL2.audio.currentOutputBuffer = e['outputBuffer']; dynCall('vi', $2, [$3]); }; SDL2.audio.scriptProcessorNode['connect'](SDL2.audioContext['destination']); },  
- 13312012: ($0, $1) => { var SDL2 = Module['SDL2']; var numChannels = SDL2.capture.currentCaptureBuffer.numberOfChannels; for (var c = 0; c < numChannels; ++c) { var channelData = SDL2.capture.currentCaptureBuffer.getChannelData(c); if (channelData.length != $1) { throw 'Web Audio capture buffer length mismatch! Destination size: ' + channelData.length + ' samples vs expected ' + $1 + ' samples!'; } if (numChannels == 1) { for (var j = 0; j < $1; ++j) { setValue($0 + (j * 4), channelData[j], 'float'); } } else { for (var j = 0; j < $1; ++j) { setValue($0 + (((j * numChannels) + c) * 4), channelData[j], 'float'); } } } },  
- 13312617: ($0, $1) => { var SDL2 = Module['SDL2']; var numChannels = SDL2.audio.currentOutputBuffer['numberOfChannels']; for (var c = 0; c < numChannels; ++c) { var channelData = SDL2.audio.currentOutputBuffer['getChannelData'](c); if (channelData.length != $1) { throw 'Web Audio output buffer length mismatch! Destination size: ' + channelData.length + ' samples vs expected ' + $1 + ' samples!'; } for (var j = 0; j < $1; ++j) { channelData[j] = HEAPF32[$0 + ((j*numChannels + c) << 2) >> 2]; } } },  
- 13313097: ($0) => { var SDL2 = Module['SDL2']; if ($0) { if (SDL2.capture.silenceTimer !== undefined) { clearTimeout(SDL2.capture.silenceTimer); } if (SDL2.capture.stream !== undefined) { var tracks = SDL2.capture.stream.getAudioTracks(); for (var i = 0; i < tracks.length; i++) { SDL2.capture.stream.removeTrack(tracks[i]); } SDL2.capture.stream = undefined; } if (SDL2.capture.scriptProcessorNode !== undefined) { SDL2.capture.scriptProcessorNode.onaudioprocess = function(audioProcessingEvent) {}; SDL2.capture.scriptProcessorNode.disconnect(); SDL2.capture.scriptProcessorNode = undefined; } if (SDL2.capture.mediaStreamNode !== undefined) { SDL2.capture.mediaStreamNode.disconnect(); SDL2.capture.mediaStreamNode = undefined; } if (SDL2.capture.silenceBuffer !== undefined) { SDL2.capture.silenceBuffer = undefined } SDL2.capture = undefined; } else { if (SDL2.audio.scriptProcessorNode != undefined) { SDL2.audio.scriptProcessorNode.disconnect(); SDL2.audio.scriptProcessorNode = undefined; } SDL2.audio = undefined; } if ((SDL2.audioContext !== undefined) && (SDL2.audio === undefined) && (SDL2.capture === undefined)) { SDL2.audioContext.close(); SDL2.audioContext = undefined; } },  
- 13314269: ($0, $1) => { var buf = $0; var buflen = $1; var list = undefined; if (navigator.languages && navigator.languages.length) { list = navigator.languages; } else { var oneOfThese = navigator.userLanguage || navigator.language || navigator.browserLanguage || navigator.systemLanguage; if (oneOfThese !== undefined) { list = [ oneOfThese ]; } } if (list === undefined) { return; } var str = ""; for (var i = 0; i < list.length; i++) { var item = list[i]; if ((str.length + item.length + 1) > buflen) { break; } if (str.length > 0) { str += ","; } str += item; } str = str.replace(/-/g, "_"); if (buflen > str.length) { buflen = str.length; } for (var i = 0; i < buflen; i++) { setValue(buf + i, str.charCodeAt(i), "i8"); } },  
- 13314977: ($0, $1, $2) => { var w = $0; var h = $1; var pixels = $2; if (!Module['SDL2']) Module['SDL2'] = {}; var SDL2 = Module['SDL2']; if (SDL2.ctxCanvas !== Module['canvas']) { SDL2.ctx = Module['createContext'](Module['canvas'], false, true); SDL2.ctxCanvas = Module['canvas']; } if (SDL2.w !== w || SDL2.h !== h || SDL2.imageCtx !== SDL2.ctx) { SDL2.image = SDL2.ctx.createImageData(w, h); SDL2.w = w; SDL2.h = h; SDL2.imageCtx = SDL2.ctx; } var data = SDL2.image.data; var src = pixels >> 2; var dst = 0; var num; if (typeof CanvasPixelArray !== 'undefined' && data instanceof CanvasPixelArray) { num = data.length; while (dst < num) { var val = HEAP32[src]; data[dst ] = val & 0xff; data[dst+1] = (val >> 8) & 0xff; data[dst+2] = (val >> 16) & 0xff; data[dst+3] = 0xff; src++; dst += 4; } } else { if (SDL2.data32Data !== data) { SDL2.data32 = new Int32Array(data.buffer); SDL2.data8 = new Uint8Array(data.buffer); SDL2.data32Data = data; } var data32 = SDL2.data32; num = data32.length; data32.set(HEAP32.subarray(src, src + num)); var data8 = SDL2.data8; var i = 3; var j = i + 4*num; if (num % 8 == 0) { while (i < j) { data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; } } else { while (i < j) { data8[i] = 0xff; i = i + 4 | 0; } } } SDL2.ctx.putImageData(SDL2.image, 0, 0); },  
- 13316446: ($0, $1, $2, $3, $4) => { var w = $0; var h = $1; var hot_x = $2; var hot_y = $3; var pixels = $4; var canvas = document.createElement("canvas"); canvas.width = w; canvas.height = h; var ctx = canvas.getContext("2d"); var image = ctx.createImageData(w, h); var data = image.data; var src = pixels >> 2; var dst = 0; var num; if (typeof CanvasPixelArray !== 'undefined' && data instanceof CanvasPixelArray) { num = data.length; while (dst < num) { var val = HEAP32[src]; data[dst ] = val & 0xff; data[dst+1] = (val >> 8) & 0xff; data[dst+2] = (val >> 16) & 0xff; data[dst+3] = (val >> 24) & 0xff; src++; dst += 4; } } else { var data32 = new Int32Array(data.buffer); num = data32.length; data32.set(HEAP32.subarray(src, src + num)); } ctx.putImageData(image, 0, 0); var url = hot_x === 0 && hot_y === 0 ? "url(" + canvas.toDataURL() + "), auto" : "url(" + canvas.toDataURL() + ") " + hot_x + " " + hot_y + ", auto"; var urlBuf = _malloc(url.length + 1); stringToUTF8(url, urlBuf, url.length + 1); return urlBuf; },  
- 13317435: ($0) => { if (Module['canvas']) { Module['canvas'].style['cursor'] = UTF8ToString($0); } },  
- 13317518: () => { if (Module['canvas']) { Module['canvas'].style['cursor'] = 'none'; } },  
- 13317587: () => { return window.innerWidth; },  
- 13317617: () => { return window.innerHeight; }
+  13309792: () => { if (typeof(AudioContext) !== 'undefined') { return true; } else if (typeof(webkitAudioContext) !== 'undefined') { return true; } return false; },  
+ 13309939: () => { if ((typeof(navigator.mediaDevices) !== 'undefined') && (typeof(navigator.mediaDevices.getUserMedia) !== 'undefined')) { return true; } else if (typeof(navigator.webkitGetUserMedia) !== 'undefined') { return true; } return false; },  
+ 13310173: ($0) => { if(typeof(Module['SDL2']) === 'undefined') { Module['SDL2'] = {}; } var SDL2 = Module['SDL2']; if (!$0) { SDL2.audio = {}; } else { SDL2.capture = {}; } if (!SDL2.audioContext) { if (typeof(AudioContext) !== 'undefined') { SDL2.audioContext = new AudioContext(); } else if (typeof(webkitAudioContext) !== 'undefined') { SDL2.audioContext = new webkitAudioContext(); } if (SDL2.audioContext) { autoResumeAudioContext(SDL2.audioContext); } } return SDL2.audioContext === undefined ? -1 : 0; },  
+ 13310666: () => { var SDL2 = Module['SDL2']; return SDL2.audioContext.sampleRate; },  
+ 13310734: ($0, $1, $2, $3) => { var SDL2 = Module['SDL2']; var have_microphone = function(stream) { if (SDL2.capture.silenceTimer !== undefined) { clearTimeout(SDL2.capture.silenceTimer); SDL2.capture.silenceTimer = undefined; } SDL2.capture.mediaStreamNode = SDL2.audioContext.createMediaStreamSource(stream); SDL2.capture.scriptProcessorNode = SDL2.audioContext.createScriptProcessor($1, $0, 1); SDL2.capture.scriptProcessorNode.onaudioprocess = function(audioProcessingEvent) { if ((SDL2 === undefined) || (SDL2.capture === undefined)) { return; } audioProcessingEvent.outputBuffer.getChannelData(0).fill(0.0); SDL2.capture.currentCaptureBuffer = audioProcessingEvent.inputBuffer; dynCall('vi', $2, [$3]); }; SDL2.capture.mediaStreamNode.connect(SDL2.capture.scriptProcessorNode); SDL2.capture.scriptProcessorNode.connect(SDL2.audioContext.destination); SDL2.capture.stream = stream; }; var no_microphone = function(error) { }; SDL2.capture.silenceBuffer = SDL2.audioContext.createBuffer($0, $1, SDL2.audioContext.sampleRate); SDL2.capture.silenceBuffer.getChannelData(0).fill(0.0); var silence_callback = function() { SDL2.capture.currentCaptureBuffer = SDL2.capture.silenceBuffer; dynCall('vi', $2, [$3]); }; SDL2.capture.silenceTimer = setTimeout(silence_callback, ($1 / SDL2.audioContext.sampleRate) * 1000); if ((navigator.mediaDevices !== undefined) && (navigator.mediaDevices.getUserMedia !== undefined)) { navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then(have_microphone).catch(no_microphone); } else if (navigator.webkitGetUserMedia !== undefined) { navigator.webkitGetUserMedia({ audio: true, video: false }, have_microphone, no_microphone); } },  
+ 13312386: ($0, $1, $2, $3) => { var SDL2 = Module['SDL2']; SDL2.audio.scriptProcessorNode = SDL2.audioContext['createScriptProcessor']($1, 0, $0); SDL2.audio.scriptProcessorNode['onaudioprocess'] = function (e) { if ((SDL2 === undefined) || (SDL2.audio === undefined)) { return; } SDL2.audio.currentOutputBuffer = e['outputBuffer']; dynCall('vi', $2, [$3]); }; SDL2.audio.scriptProcessorNode['connect'](SDL2.audioContext['destination']); },  
+ 13312796: ($0, $1) => { var SDL2 = Module['SDL2']; var numChannels = SDL2.capture.currentCaptureBuffer.numberOfChannels; for (var c = 0; c < numChannels; ++c) { var channelData = SDL2.capture.currentCaptureBuffer.getChannelData(c); if (channelData.length != $1) { throw 'Web Audio capture buffer length mismatch! Destination size: ' + channelData.length + ' samples vs expected ' + $1 + ' samples!'; } if (numChannels == 1) { for (var j = 0; j < $1; ++j) { setValue($0 + (j * 4), channelData[j], 'float'); } } else { for (var j = 0; j < $1; ++j) { setValue($0 + (((j * numChannels) + c) * 4), channelData[j], 'float'); } } } },  
+ 13313401: ($0, $1) => { var SDL2 = Module['SDL2']; var numChannels = SDL2.audio.currentOutputBuffer['numberOfChannels']; for (var c = 0; c < numChannels; ++c) { var channelData = SDL2.audio.currentOutputBuffer['getChannelData'](c); if (channelData.length != $1) { throw 'Web Audio output buffer length mismatch! Destination size: ' + channelData.length + ' samples vs expected ' + $1 + ' samples!'; } for (var j = 0; j < $1; ++j) { channelData[j] = HEAPF32[$0 + ((j*numChannels + c) << 2) >> 2]; } } },  
+ 13313881: ($0) => { var SDL2 = Module['SDL2']; if ($0) { if (SDL2.capture.silenceTimer !== undefined) { clearTimeout(SDL2.capture.silenceTimer); } if (SDL2.capture.stream !== undefined) { var tracks = SDL2.capture.stream.getAudioTracks(); for (var i = 0; i < tracks.length; i++) { SDL2.capture.stream.removeTrack(tracks[i]); } SDL2.capture.stream = undefined; } if (SDL2.capture.scriptProcessorNode !== undefined) { SDL2.capture.scriptProcessorNode.onaudioprocess = function(audioProcessingEvent) {}; SDL2.capture.scriptProcessorNode.disconnect(); SDL2.capture.scriptProcessorNode = undefined; } if (SDL2.capture.mediaStreamNode !== undefined) { SDL2.capture.mediaStreamNode.disconnect(); SDL2.capture.mediaStreamNode = undefined; } if (SDL2.capture.silenceBuffer !== undefined) { SDL2.capture.silenceBuffer = undefined } SDL2.capture = undefined; } else { if (SDL2.audio.scriptProcessorNode != undefined) { SDL2.audio.scriptProcessorNode.disconnect(); SDL2.audio.scriptProcessorNode = undefined; } SDL2.audio = undefined; } if ((SDL2.audioContext !== undefined) && (SDL2.audio === undefined) && (SDL2.capture === undefined)) { SDL2.audioContext.close(); SDL2.audioContext = undefined; } },  
+ 13315053: ($0, $1) => { var buf = $0; var buflen = $1; var list = undefined; if (navigator.languages && navigator.languages.length) { list = navigator.languages; } else { var oneOfThese = navigator.userLanguage || navigator.language || navigator.browserLanguage || navigator.systemLanguage; if (oneOfThese !== undefined) { list = [ oneOfThese ]; } } if (list === undefined) { return; } var str = ""; for (var i = 0; i < list.length; i++) { var item = list[i]; if ((str.length + item.length + 1) > buflen) { break; } if (str.length > 0) { str += ","; } str += item; } str = str.replace(/-/g, "_"); if (buflen > str.length) { buflen = str.length; } for (var i = 0; i < buflen; i++) { setValue(buf + i, str.charCodeAt(i), "i8"); } },  
+ 13315761: ($0, $1, $2) => { var w = $0; var h = $1; var pixels = $2; if (!Module['SDL2']) Module['SDL2'] = {}; var SDL2 = Module['SDL2']; if (SDL2.ctxCanvas !== Module['canvas']) { SDL2.ctx = Module['createContext'](Module['canvas'], false, true); SDL2.ctxCanvas = Module['canvas']; } if (SDL2.w !== w || SDL2.h !== h || SDL2.imageCtx !== SDL2.ctx) { SDL2.image = SDL2.ctx.createImageData(w, h); SDL2.w = w; SDL2.h = h; SDL2.imageCtx = SDL2.ctx; } var data = SDL2.image.data; var src = pixels >> 2; var dst = 0; var num; if (typeof CanvasPixelArray !== 'undefined' && data instanceof CanvasPixelArray) { num = data.length; while (dst < num) { var val = HEAP32[src]; data[dst ] = val & 0xff; data[dst+1] = (val >> 8) & 0xff; data[dst+2] = (val >> 16) & 0xff; data[dst+3] = 0xff; src++; dst += 4; } } else { if (SDL2.data32Data !== data) { SDL2.data32 = new Int32Array(data.buffer); SDL2.data8 = new Uint8Array(data.buffer); SDL2.data32Data = data; } var data32 = SDL2.data32; num = data32.length; data32.set(HEAP32.subarray(src, src + num)); var data8 = SDL2.data8; var i = 3; var j = i + 4*num; if (num % 8 == 0) { while (i < j) { data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; data8[i] = 0xff; i = i + 4 | 0; } } else { while (i < j) { data8[i] = 0xff; i = i + 4 | 0; } } } SDL2.ctx.putImageData(SDL2.image, 0, 0); },  
+ 13317230: ($0, $1, $2, $3, $4) => { var w = $0; var h = $1; var hot_x = $2; var hot_y = $3; var pixels = $4; var canvas = document.createElement("canvas"); canvas.width = w; canvas.height = h; var ctx = canvas.getContext("2d"); var image = ctx.createImageData(w, h); var data = image.data; var src = pixels >> 2; var dst = 0; var num; if (typeof CanvasPixelArray !== 'undefined' && data instanceof CanvasPixelArray) { num = data.length; while (dst < num) { var val = HEAP32[src]; data[dst ] = val & 0xff; data[dst+1] = (val >> 8) & 0xff; data[dst+2] = (val >> 16) & 0xff; data[dst+3] = (val >> 24) & 0xff; src++; dst += 4; } } else { var data32 = new Int32Array(data.buffer); num = data32.length; data32.set(HEAP32.subarray(src, src + num)); } ctx.putImageData(image, 0, 0); var url = hot_x === 0 && hot_y === 0 ? "url(" + canvas.toDataURL() + "), auto" : "url(" + canvas.toDataURL() + ") " + hot_x + " " + hot_y + ", auto"; var urlBuf = _malloc(url.length + 1); stringToUTF8(url, urlBuf, url.length + 1); return urlBuf; },  
+ 13318219: ($0) => { if (Module['canvas']) { Module['canvas'].style['cursor'] = UTF8ToString($0); } },  
+ 13318302: () => { if (Module['canvas']) { Module['canvas'].style['cursor'] = 'none'; } },  
+ 13318371: () => { return window.innerWidth; },  
+ 13318401: () => { return window.innerHeight; }
 };
 
 
@@ -1247,7 +1247,7 @@ var ASM_CONSTS = {
     }
 
   function dynCallLegacy(sig, ptr, args) {
-      assert(('dynCall_' + sig) in Module, 'bad function pointer type - dynCall function not found for sig \'' + sig + '\'');
+      assert(('dynCall_' + sig) in Module, `bad function pointer type - dynCall function not found for sig '${sig}'`);
       if (args && args.length) {
         // j (64-bit integer) must be passed in as two numbers [low 32, high 32].
         assert(args.length === sig.substring(1).replace(/j/g, '--').length);
@@ -1278,9 +1278,10 @@ var ASM_CONSTS = {
       if (sig.includes('j')) {
         return dynCallLegacy(sig, ptr, args);
       }
-      assert(getWasmTableEntry(ptr), 'missing table entry in dynCall: ' + ptr);
+      assert(getWasmTableEntry(ptr), `missing table entry in dynCall: ${ptr}`);
       var rtn = getWasmTableEntry(ptr).apply(null, args);
       return rtn;
+  
     }
 
   
@@ -1299,7 +1300,7 @@ var ASM_CONSTS = {
       case 'float': return HEAPF32[((ptr)>>2)];
       case 'double': return HEAPF64[((ptr)>>3)];
       case '*': return HEAPU32[((ptr)>>2)];
-      default: abort('invalid type for getValue: ' + type);
+      default: abort(`invalid type for getValue: ${type}`);
     }
   }
 
@@ -1325,7 +1326,7 @@ var ASM_CONSTS = {
       case 'float': HEAPF32[((ptr)>>2)] = value; break;
       case 'double': HEAPF64[((ptr)>>3)] = value; break;
       case '*': HEAPU32[((ptr)>>2)] = value; break;
-      default: abort('invalid type for setValue: ' + type);
+      default: abort(`invalid type for setValue: ${type}`);
     }
   }
 
@@ -1413,7 +1414,7 @@ var ASM_CONSTS = {
       return ptr ? UTF8ArrayToString(HEAPU8, ptr, maxBytesToRead) : '';
     }
   function ___assert_fail(condition, filename, line, func) {
-      abort('Assertion failed: ' + UTF8ToString(condition) + ', at: ' + [filename ? UTF8ToString(filename) : 'unknown filename', line, func ? UTF8ToString(func) : 'unknown function']);
+      abort(`Assertion failed: ${UTF8ToString(condition)}, at: ` + [filename ? UTF8ToString(filename) : 'unknown filename', line, func ? UTF8ToString(func) : 'unknown function']);
     }
 
   var dlopenMissingError =  'To use dlopen, you need enable dynamic linking, see https://emscripten.org/docs/compiling/Dynamic-Linking.html';
@@ -1649,6 +1650,7 @@ var ASM_CONSTS = {
     if (dontAddNull) u8array.length = numBytesWritten;
     return u8array;
   }
+  
   var TTY = {ttys:[],init:function () {
         // https://github.com/emscripten-core/emscripten/pull/1555
         // if (ENVIRONMENT_IS_NODE) {
@@ -2117,19 +2119,87 @@ var ASM_CONSTS = {
   
   /** @param {boolean=} noRunDep */
   function asyncLoad(url, onload, onerror, noRunDep) {
-      var dep = !noRunDep ? getUniqueRunDependency('al ' + url) : '';
+      var dep = !noRunDep ? getUniqueRunDependency(`al ${url}`) : '';
       readAsync(url, (arrayBuffer) => {
-        assert(arrayBuffer, 'Loading data file "' + url + '" failed (no arrayBuffer).');
+        assert(arrayBuffer, `Loading data file "${url}" failed (no arrayBuffer).`);
         onload(new Uint8Array(arrayBuffer));
         if (dep) removeRunDependency(dep);
       }, (event) => {
         if (onerror) {
           onerror();
         } else {
-          throw 'Loading data file "' + url + '" failed.';
+          throw `Loading data file "${url}" failed.`;
         }
       });
       if (dep) addRunDependency(dep);
+    }
+  
+  var preloadPlugins = Module['preloadPlugins'] || [];
+  function FS_handledByPreloadPlugin(byteArray, fullname, finish, onerror) {
+      // Ensure plugins are ready.
+      if (typeof Browser != 'undefined') Browser.init();
+  
+      var handled = false;
+      preloadPlugins.forEach(function(plugin) {
+        if (handled) return;
+        if (plugin['canHandle'](fullname)) {
+          plugin['handle'](byteArray, fullname, finish, onerror);
+          handled = true;
+        }
+      });
+      return handled;
+    }
+  function FS_createPreloadedFile(parent, name, url, canRead, canWrite, onload, onerror, dontCreateFile, canOwn, preFinish) {
+      // TODO we should allow people to just pass in a complete filename instead
+      // of parent and name being that we just join them anyways
+      var fullname = name ? PATH_FS.resolve(PATH.join2(parent, name)) : parent;
+      var dep = getUniqueRunDependency(`cp ${fullname}`); // might have several active requests for the same fullname
+      function processData(byteArray) {
+        function finish(byteArray) {
+          if (preFinish) preFinish();
+          if (!dontCreateFile) {
+            FS.createDataFile(parent, name, byteArray, canRead, canWrite, canOwn);
+          }
+          if (onload) onload();
+          removeRunDependency(dep);
+        }
+        if (FS_handledByPreloadPlugin(byteArray, fullname, finish, () => {
+          if (onerror) onerror();
+          removeRunDependency(dep);
+        })) {
+          return;
+        }
+        finish(byteArray);
+      }
+      addRunDependency(dep);
+      if (typeof url == 'string') {
+        asyncLoad(url, (byteArray) => processData(byteArray), onerror);
+      } else {
+        processData(url);
+      }
+    }
+  
+  function FS_modeStringToFlags(str) {
+      var flagModes = {
+        'r': 0,
+        'r+': 2,
+        'w': 512 | 64 | 1,
+        'w+': 512 | 64 | 2,
+        'a': 1024 | 64 | 1,
+        'a+': 1024 | 64 | 2,
+      };
+      var flags = flagModes[str];
+      if (typeof flags == 'undefined') {
+        throw new Error(`Unknown file open mode: ${str}`);
+      }
+      return flags;
+    }
+  
+  function FS_getMode(canRead, canWrite) {
+      var mode = 0;
+      if (canRead) mode |= 292 | 73;
+      if (canWrite) mode |= 146;
+      return mode;
     }
   
   
@@ -2216,9 +2286,9 @@ var ASM_CONSTS = {
           if (FS.isRoot(node)) {
             var mount = node.mount.mountpoint;
             if (!path) return mount;
-            return mount[mount.length-1] !== '/' ? mount + '/' + path : mount + path;
+            return mount[mount.length-1] !== '/' ? `${mount}/${path}` : mount + path;
           }
-          path = path ? node.name + '/' + path : node.name;
+          path = path ? `${node.name}/${path}` : node.name;
           node = node.parent;
         }
       },hashName:(parentid, name) => {
@@ -2287,12 +2357,6 @@ var ASM_CONSTS = {
         return (mode & 61440) === 4096;
       },isSocket:(mode) => {
         return (mode & 49152) === 49152;
-      },flagModes:{"r":0,"r+":2,"w":577,"w+":578,"a":1089,"a+":1090},modeStringToFlags:(str) => {
-        var flags = FS.flagModes[str];
-        if (typeof flags == 'undefined') {
-          throw new Error('Unknown file open mode: ' + str);
-        }
-        return flags;
       },flagsToPermissionString:(flag) => {
         var perms = ['r', 'w', 'rw'][flag & 3];
         if ((flag & 512)) {
@@ -2449,7 +2513,7 @@ var ASM_CONSTS = {
         FS.syncFSRequests++;
   
         if (FS.syncFSRequests > 1) {
-          err('warning: ' + FS.syncFSRequests + ' FS.syncfs operations in flight at once, probably just doing extra work');
+          err(`warning: ${FS.syncFSRequests} FS.syncfs operations in flight at once, probably just doing extra work`);
         }
   
         var mounts = FS.getMounts(FS.root.mount);
@@ -2873,7 +2937,7 @@ var ASM_CONSTS = {
         if (path === "") {
           throw new FS.ErrnoError(44);
         }
-        flags = typeof flags == 'string' ? FS.modeStringToFlags(flags) : flags;
+        flags = typeof flags == 'string' ? FS_modeStringToFlags(flags) : flags;
         mode = typeof mode == 'undefined' ? 438 /* 0666 */ : mode;
         if ((flags & 64)) {
           mode = (mode & 4095) | 32768;
@@ -3092,7 +3156,7 @@ var ASM_CONSTS = {
         opts.flags = opts.flags || 0;
         opts.encoding = opts.encoding || 'binary';
         if (opts.encoding !== 'utf8' && opts.encoding !== 'binary') {
-          throw new Error('Invalid encoding type "' + opts.encoding + '"');
+          throw new Error(`Invalid encoding type "${opts.encoding}"`);
         }
         var ret;
         var stream = FS.open(path, opts.flags);
@@ -3223,9 +3287,9 @@ var ASM_CONSTS = {
         var stdin = FS.open('/dev/stdin', 0);
         var stdout = FS.open('/dev/stdout', 1);
         var stderr = FS.open('/dev/stderr', 1);
-        assert(stdin.fd === 0, 'invalid handle for stdin (' + stdin.fd + ')');
-        assert(stdout.fd === 1, 'invalid handle for stdout (' + stdout.fd + ')');
-        assert(stderr.fd === 2, 'invalid handle for stderr (' + stderr.fd + ')');
+        assert(stdin.fd === 0, `invalid handle for stdin (${stdin.fd})`);
+        assert(stdout.fd === 1, `invalid handle for stdout (${stdout.fd})`);
+        assert(stderr.fd === 2, `invalid handle for stderr (${stderr.fd})`);
       },ensureErrnoError:() => {
         if (FS.ErrnoError) return;
         FS.ErrnoError = /** @this{Object} */ function ErrnoError(errno, node) {
@@ -3302,11 +3366,6 @@ var ASM_CONSTS = {
           }
           FS.close(stream);
         }
-      },getMode:(canRead, canWrite) => {
-        var mode = 0;
-        if (canRead) mode |= 292 | 73;
-        if (canWrite) mode |= 146;
-        return mode;
       },findObject:(path, dontResolveLastLink) => {
         var ret = FS.analyzePath(path, dontResolveLastLink);
         if (!ret.exists) {
@@ -3357,7 +3416,7 @@ var ASM_CONSTS = {
         return current;
       },createFile:(parent, name, properties, canRead, canWrite) => {
         var path = PATH.join2(typeof parent == 'string' ? parent : FS.getPath(parent), name);
-        var mode = FS.getMode(canRead, canWrite);
+        var mode = FS_getMode(canRead, canWrite);
         return FS.create(path, mode);
       },createDataFile:(parent, name, data, canRead, canWrite, canOwn) => {
         var path = name;
@@ -3365,7 +3424,7 @@ var ASM_CONSTS = {
           parent = typeof parent == 'string' ? parent : FS.getPath(parent);
           path = name ? PATH.join2(parent, name) : parent;
         }
-        var mode = FS.getMode(canRead, canWrite);
+        var mode = FS_getMode(canRead, canWrite);
         var node = FS.create(path, mode);
         if (data) {
           if (typeof data == 'string') {
@@ -3383,7 +3442,7 @@ var ASM_CONSTS = {
         return node;
       },createDevice:(parent, name, input, output) => {
         var path = PATH.join2(typeof parent == 'string' ? parent : FS.getPath(parent), name);
-        var mode = FS.getMode(!!input, !!output);
+        var mode = FS_getMode(!!input, !!output);
         if (!FS.createDevice.major) FS.createDevice.major = 64;
         var dev = FS.makedev(FS.createDevice.major++, 0);
         // Create a fake device that a set of stream ops to emulate
@@ -3618,34 +3677,6 @@ var ASM_CONSTS = {
         };
         node.stream_ops = stream_ops;
         return node;
-      },createPreloadedFile:(parent, name, url, canRead, canWrite, onload, onerror, dontCreateFile, canOwn, preFinish) => {
-        // TODO we should allow people to just pass in a complete filename instead
-        // of parent and name being that we just join them anyways
-        var fullname = name ? PATH_FS.resolve(PATH.join2(parent, name)) : parent;
-        var dep = getUniqueRunDependency('cp ' + fullname); // might have several active requests for the same fullname
-        function processData(byteArray) {
-          function finish(byteArray) {
-            if (preFinish) preFinish();
-            if (!dontCreateFile) {
-              FS.createDataFile(parent, name, byteArray, canRead, canWrite, canOwn);
-            }
-            if (onload) onload();
-            removeRunDependency(dep);
-          }
-          if (Browser.handledByPreloadPlugin(byteArray, fullname, finish, () => {
-            if (onerror) onerror();
-            removeRunDependency(dep);
-          })) {
-            return;
-          }
-          finish(byteArray);
-        }
-        addRunDependency(dep);
-        if (typeof url == 'string') {
-          asyncLoad(url, (byteArray) => processData(byteArray), onerror);
-        } else {
-          processData(url);
-        }
       },absolutePath:() => {
         abort('FS.absolutePath has been removed; use PATH_FS.resolve instead');
       },createFolder:() => {
@@ -4422,18 +4453,18 @@ var ASM_CONSTS = {
         
         Browser.mainLoop.running = true;
       }
-      if (mode == 0 /*EM_TIMING_SETTIMEOUT*/) {
+      if (mode == 0) {
         Browser.mainLoop.scheduler = function Browser_mainLoop_scheduler_setTimeout() {
           var timeUntilNextTick = Math.max(0, Browser.mainLoop.tickStartTime + value - _emscripten_get_now())|0;
           setTimeout(Browser.mainLoop.runner, timeUntilNextTick); // doing this each time means that on exception, we stop
         };
         Browser.mainLoop.method = 'timeout';
-      } else if (mode == 1 /*EM_TIMING_RAF*/) {
+      } else if (mode == 1) {
         Browser.mainLoop.scheduler = function Browser_mainLoop_scheduler_rAF() {
           Browser.requestAnimationFrame(Browser.mainLoop.runner);
         };
         Browser.mainLoop.method = 'rAF';
-      } else if (mode == 2 /*EM_TIMING_SETIMMEDIATE*/) {
+      } else if (mode == 2) {
         if (typeof setImmediate == 'undefined') {
           // Emulate setImmediate. (note: not a complete polyfill, we don't emulate clearImmediate() to keep code size to minimum, since not needed)
           var setImmediates = [];
@@ -4531,11 +4562,11 @@ var ASM_CONSTS = {
   
         // Implement very basic swap interval control
         Browser.mainLoop.currentFrameNumber = Browser.mainLoop.currentFrameNumber + 1 | 0;
-        if (Browser.mainLoop.timingMode == 1/*EM_TIMING_RAF*/ && Browser.mainLoop.timingValue > 1 && Browser.mainLoop.currentFrameNumber % Browser.mainLoop.timingValue != 0) {
+        if (Browser.mainLoop.timingMode == 1 && Browser.mainLoop.timingValue > 1 && Browser.mainLoop.currentFrameNumber % Browser.mainLoop.timingValue != 0) {
           // Not the scheduled time to render this frame - skip.
           Browser.mainLoop.scheduler();
           return;
-        } else if (Browser.mainLoop.timingMode == 0/*EM_TIMING_SETTIMEOUT*/) {
+        } else if (Browser.mainLoop.timingMode == 0) {
           Browser.mainLoop.tickStartTime = _emscripten_get_now();
         }
   
@@ -4564,8 +4595,12 @@ var ASM_CONSTS = {
       }
   
       if (!noSetTiming) {
-        if (fps && fps > 0) _emscripten_set_main_loop_timing(0/*EM_TIMING_SETTIMEOUT*/, 1000.0 / fps);
-        else _emscripten_set_main_loop_timing(1/*EM_TIMING_RAF*/, 1); // Do rAF by rendering each frame (no decimating)
+        if (fps && fps > 0) {
+          _emscripten_set_main_loop_timing(0, 1000.0 / fps);
+        } else {
+          // Do rAF by rendering each frame (no decimating)
+          _emscripten_set_main_loop_timing(1, 1);
+        }
   
         Browser.mainLoop.scheduler();
       }
@@ -4587,7 +4622,7 @@ var ASM_CONSTS = {
       checkStackCookie();
       if (e instanceof WebAssembly.RuntimeError) {
         if (_emscripten_stack_get_current() <= 0) {
-          err('Stack overflow detected.  You can try increasing -sSTACK_SIZE (currently set to ' + 10485760 + ')');
+          err('Stack overflow detected.  You can try increasing -sSTACK_SIZE (currently set to 10485760)');
         }
       }
       quit_(1, e);
@@ -4611,7 +4646,7 @@ var ASM_CONSTS = {
   
       // if exit() was called explicitly, warn the user if the runtime isn't actually being shut down
       if (keepRuntimeAlive() && !implicit) {
-        var msg = 'program exited (with status: ' + status + '), but keepRuntimeAlive() is set (counter=' + runtimeKeepaliveCounter + ') due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)';
+        var msg = `program exited (with status: ${status}), but keepRuntimeAlive() is set (counter=${runtimeKeepaliveCounter}) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)`;
         err(msg);
       }
   
@@ -4649,6 +4684,7 @@ var ASM_CONSTS = {
         callUserCallback(func);
       }, timeout);
     }
+  
   
   
   
@@ -4692,27 +4728,11 @@ var ASM_CONSTS = {
           callUserCallback(func);
           if (Module['postMainLoop']) Module['postMainLoop']();
         }},isFullscreen:false,pointerLock:false,moduleContextCreatedCallbacks:[],workers:[],init:function() {
-        if (!Module["preloadPlugins"]) Module["preloadPlugins"] = []; // needs to exist even in workers
-  
         if (Browser.initted) return;
         Browser.initted = true;
   
-        try {
-          new Blob();
-          Browser.hasBlobConstructor = true;
-        } catch(e) {
-          Browser.hasBlobConstructor = false;
-          err("warning: no blob constructor, cannot create blobs with mimetypes");
-        }
-        Browser.BlobBuilder = typeof MozBlobBuilder != "undefined" ? MozBlobBuilder : (typeof WebKitBlobBuilder != "undefined" ? WebKitBlobBuilder : (!Browser.hasBlobConstructor ? err("warning: no BlobBuilder") : null));
-        Browser.URLObject = typeof window != "undefined" ? (window.URL ? window.URL : window.webkitURL) : undefined;
-        if (!Module.noImageDecoding && typeof Browser.URLObject == 'undefined') {
-          err("warning: Browser does not support creating object URLs. Built-in browser image decoding will not be available.");
-          Module.noImageDecoding = true;
-        }
-  
         // Support for plugins that can process preloaded files. You can add more of these to
-        // your app by creating and appending to Module.preloadPlugins.
+        // your app by creating and appending to preloadPlugins.
         //
         // Each plugin is asked if it can handle a file based on the file's name. If it can,
         // it is given the file's raw data. When it is done, it calls a callback with the file's
@@ -4724,24 +4744,12 @@ var ASM_CONSTS = {
           return !Module.noImageDecoding && /\.(jpg|jpeg|png|bmp)$/i.test(name);
         };
         imagePlugin['handle'] = function imagePlugin_handle(byteArray, name, onload, onerror) {
-          var b = null;
-          if (Browser.hasBlobConstructor) {
-            try {
-              b = new Blob([byteArray], { type: Browser.getMimetype(name) });
-              if (b.size !== byteArray.length) { // Safari bug #118630
-                // Safari's Blob can only take an ArrayBuffer
-                b = new Blob([(new Uint8Array(byteArray)).buffer], { type: Browser.getMimetype(name) });
-              }
-            } catch(e) {
-              warnOnce('Blob constructor present but fails: ' + e + '; falling back to blob builder');
-            }
+          var b = new Blob([byteArray], { type: Browser.getMimetype(name) });
+          if (b.size !== byteArray.length) { // Safari bug #118630
+            // Safari's Blob can only take an ArrayBuffer
+            b = new Blob([(new Uint8Array(byteArray)).buffer], { type: Browser.getMimetype(name) });
           }
-          if (!b) {
-            var bb = new Browser.BlobBuilder();
-            bb.append((new Uint8Array(byteArray)).buffer); // we need to pass a buffer, and must copy the array to get the right data range
-            b = bb.getBlob();
-          }
-          var url = Browser.URLObject.createObjectURL(b);
+          var url = URL.createObjectURL(b);
           assert(typeof url == 'string', 'createObjectURL must return a url as a string');
           var img = new Image();
           img.onload = () => {
@@ -4752,7 +4760,7 @@ var ASM_CONSTS = {
             var ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0);
             preloadedImages[name] = canvas;
-            Browser.URLObject.revokeObjectURL(url);
+            URL.revokeObjectURL(url);
             if (onload) onload(byteArray);
           };
           img.onerror = (event) => {
@@ -4761,7 +4769,7 @@ var ASM_CONSTS = {
           };
           img.src = url;
         };
-        Module['preloadPlugins'].push(imagePlugin);
+        preloadPlugins.push(imagePlugin);
   
         var audioPlugin = {};
         audioPlugin['canHandle'] = function audioPlugin_canHandle(name) {
@@ -4781,56 +4789,48 @@ var ASM_CONSTS = {
             preloadedAudios[name] = new Audio(); // empty shim
             if (onerror) onerror();
           }
-          if (Browser.hasBlobConstructor) {
-            try {
-              var b = new Blob([byteArray], { type: Browser.getMimetype(name) });
-            } catch(e) {
-              return fail();
-            }
-            var url = Browser.URLObject.createObjectURL(b); // XXX we never revoke this!
-            assert(typeof url == 'string', 'createObjectURL must return a url as a string');
-            var audio = new Audio();
-            audio.addEventListener('canplaythrough', () => finish(audio), false); // use addEventListener due to chromium bug 124926
-            audio.onerror = function audio_onerror(event) {
-              if (done) return;
-              err('warning: browser could not fully decode audio ' + name + ', trying slower base64 approach');
-              function encode64(data) {
-                var BASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-                var PAD = '=';
-                var ret = '';
-                var leftchar = 0;
-                var leftbits = 0;
-                for (var i = 0; i < data.length; i++) {
-                  leftchar = (leftchar << 8) | data[i];
-                  leftbits += 8;
-                  while (leftbits >= 6) {
-                    var curr = (leftchar >> (leftbits-6)) & 0x3f;
-                    leftbits -= 6;
-                    ret += BASE[curr];
-                  }
+          var b = new Blob([byteArray], { type: Browser.getMimetype(name) });
+          var url = URL.createObjectURL(b); // XXX we never revoke this!
+          assert(typeof url == 'string', 'createObjectURL must return a url as a string');
+          var audio = new Audio();
+          audio.addEventListener('canplaythrough', () => finish(audio), false); // use addEventListener due to chromium bug 124926
+          audio.onerror = function audio_onerror(event) {
+            if (done) return;
+            err('warning: browser could not fully decode audio ' + name + ', trying slower base64 approach');
+            function encode64(data) {
+              var BASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+              var PAD = '=';
+              var ret = '';
+              var leftchar = 0;
+              var leftbits = 0;
+              for (var i = 0; i < data.length; i++) {
+                leftchar = (leftchar << 8) | data[i];
+                leftbits += 8;
+                while (leftbits >= 6) {
+                  var curr = (leftchar >> (leftbits-6)) & 0x3f;
+                  leftbits -= 6;
+                  ret += BASE[curr];
                 }
-                if (leftbits == 2) {
-                  ret += BASE[(leftchar&3) << 4];
-                  ret += PAD + PAD;
-                } else if (leftbits == 4) {
-                  ret += BASE[(leftchar&0xf) << 2];
-                  ret += PAD;
-                }
-                return ret;
               }
-              audio.src = 'data:audio/x-' + name.substr(-3) + ';base64,' + encode64(byteArray);
-              finish(audio); // we don't wait for confirmation this worked - but it's worth trying
-            };
-            audio.src = url;
-            // workaround for chrome bug 124926 - we do not always get oncanplaythrough or onerror
-            safeSetTimeout(() => {
-              finish(audio); // try to use it even though it is not necessarily ready to play
-            }, 10000);
-          } else {
-            return fail();
-          }
+              if (leftbits == 2) {
+                ret += BASE[(leftchar&3) << 4];
+                ret += PAD + PAD;
+              } else if (leftbits == 4) {
+                ret += BASE[(leftchar&0xf) << 2];
+                ret += PAD;
+              }
+              return ret;
+            }
+            audio.src = 'data:audio/x-' + name.substr(-3) + ';base64,' + encode64(byteArray);
+            finish(audio); // we don't wait for confirmation this worked - but it's worth trying
+          };
+          audio.src = url;
+          // workaround for chrome bug 124926 - we do not always get oncanplaythrough or onerror
+          safeSetTimeout(() => {
+            finish(audio); // try to use it even though it is not necessarily ready to play
+          }, 10000);
         };
-        Module['preloadPlugins'].push(audioPlugin);
+        preloadPlugins.push(audioPlugin);
   
         // Canvas event setup
   
@@ -4871,19 +4871,6 @@ var ASM_CONSTS = {
             }, false);
           }
         }
-      },handledByPreloadPlugin:function(byteArray, fullname, finish, onerror) {
-        // Ensure plugins are ready.
-        Browser.init();
-  
-        var handled = false;
-        Module['preloadPlugins'].forEach((plugin) => {
-          if (handled) return;
-          if (plugin['canHandle'](fullname)) {
-            plugin['handle'](byteArray, fullname, finish, onerror);
-            handled = true;
-          }
-        });
-        return handled;
       },createContext:function(/** @type {HTMLCanvasElement} */ canvas, useWebGL, setInModule, webGLContextAttributes) {
         if (useWebGL && Module.ctx && canvas == Module.canvas) return Module.ctx; // no need to recreate GL context if it's already been created for this canvas.
   
@@ -5757,7 +5744,7 @@ var ASM_CONSTS = {
       return ret;
     }
 
-  function _eglSwapBuffers() {
+  function _eglSwapBuffers(dpy, surface) {
   
       if (!EGL.defaultDisplayInitialized) {
         EGL.setErrorCode(0x3001 /* EGL_NOT_INITIALIZED */);
@@ -5829,7 +5816,7 @@ var ASM_CONSTS = {
       while (ch = HEAPU8[sigPtr++]) {
         var chr = String.fromCharCode(ch);
         var validChars = ['d', 'f', 'i'];
-        assert(validChars.includes(chr), 'Invalid character ' + ch + '("' + chr + '") in readEmAsmArgs! Use only [' + validChars + '], and do not specify "v" for void return argument.');
+        assert(validChars.includes(chr), `Invalid character ${ch}("${chr}") in readEmAsmArgs! Use only [${validChars}], and do not specify "v" for void return argument.`);
         // Floats are always passed as doubles, and doubles and int64s take up 8
         // bytes (two 32-bit slots) in memory, align reads to these:
         buf += (ch != 105/*i*/) & buf;
@@ -5843,7 +5830,7 @@ var ASM_CONSTS = {
     }
   function runEmAsmFunction(code, sigPtr, argbuf) {
       var args = readEmAsmArgs(sigPtr, argbuf);
-      if (!ASM_CONSTS.hasOwnProperty(code)) abort('No EM_ASM constant found at address ' + code);
+      if (!ASM_CONSTS.hasOwnProperty(code)) abort(`No EM_ASM constant found at address ${code}`);
       return ASM_CONSTS[code].apply(null, args);
     }
   function _emscripten_asm_const_int(code, sigPtr, argbuf) {
@@ -5852,7 +5839,7 @@ var ASM_CONSTS = {
 
   function runMainThreadEmAsm(code, sigPtr, argbuf, sync) {
       var args = readEmAsmArgs(sigPtr, argbuf);
-      if (!ASM_CONSTS.hasOwnProperty(code)) abort('No EM_ASM constant found at address ' + code);
+      if (!ASM_CONSTS.hasOwnProperty(code)) abort(`No EM_ASM constant found at address ${code}`);
       return ASM_CONSTS[code].apply(null, args);
     }
   function _emscripten_asm_const_int_sync_on_main_thread(code, sigPtr, argbuf) {
@@ -5934,6 +5921,11 @@ var ASM_CONSTS = {
         h.target.removeEventListener(h.eventTypeString, h.eventListenerFunc, h.useCapture);
         JSEvents.eventHandlers.splice(i, 1);
       },registerOrRemoveHandler:function(eventHandler) {
+        if (!eventHandler.target) {
+          err('registerOrRemoveHandler: the target element for event handler registration does not exist, when processing the following event handler registration:');
+          console.dir(eventHandler);
+          return -4;
+        }
         var jsEventHandler = function jsEventHandler(event) {
           // Increment nesting count for the event handler.
           ++JSEvents.inEventHandler;
@@ -5961,6 +5953,7 @@ var ASM_CONSTS = {
              }
           }
         }
+        return 0;
       },getNodeNameForTarget:function(target) {
         if (!target) return '';
         if (target == window) return '#window';
@@ -8262,7 +8255,7 @@ var ASM_CONSTS = {
         updateMemoryViews();
         return 1 /*success*/;
       } catch(e) {
-        err('emscripten_realloc_buffer: Attempted to grow heap from ' + b.byteLength  + ' bytes to ' + size + ' bytes, but got error: ' + e);
+        err(`emscripten_realloc_buffer: Attempted to grow heap from ${b.byteLength} bytes to ${size} bytes, but got error: ${e}`);
       }
       // implicit 0 return to save code size (caller will cast "undefined" into 0
       // anyhow)
@@ -8295,11 +8288,11 @@ var ASM_CONSTS = {
       // (the wasm binary specifies it, so if we tried, we'd fail anyhow).
       var maxHeapSize = getHeapMax();
       if (requestedSize > maxHeapSize) {
-        err('Cannot enlarge memory, asked to go up to ' + requestedSize + ' bytes, but the limit is ' + maxHeapSize + ' bytes!');
+        err(`Cannot enlarge memory, asked to go up to ${requestedSize} bytes, but the limit is ${maxHeapSize} bytes!`);
         return false;
       }
   
-      let alignUp = (x, multiple) => x + (multiple - x % multiple) % multiple;
+      var alignUp = (x, multiple) => x + (multiple - x % multiple) % multiple;
   
       // Loop through potential heap size increases. If we attempt a too eager
       // reservation that fails, cut down on the attempted size and reserve a
@@ -8317,7 +8310,7 @@ var ASM_CONSTS = {
           return true;
         }
       }
-      err('Failed to grow the heap from ' + oldSize + ' bytes to ' + newSize + ' bytes, not enough memory!');
+      err(`Failed to grow the heap from ${oldSize} bytes to ${newSize} bytes, not enough memory!`);
       return false;
     }
 
@@ -8351,15 +8344,14 @@ var ASM_CONSTS = {
         handlerFunc: beforeUnloadEventHandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   function _emscripten_set_beforeunload_callback_on_thread(userData, callbackfunc, targetThread) {
       if (typeof onbeforeunload == 'undefined') return -1;
       // beforeunload callback can only be registered on the main browser thread, because the page will go away immediately after returning from the handler,
       // and there is no time to start proxying it anywhere.
       if (targetThread !== 1) return -5;
-      registerBeforeUnloadEventCallback(2, userData, true, callbackfunc, 28, "beforeunload");
-      return 0;
+      return registerBeforeUnloadEventCallback(2, userData, true, callbackfunc, 28, "beforeunload");
     }
 
   
@@ -8387,11 +8379,10 @@ var ASM_CONSTS = {
         handlerFunc: focusEventHandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   function _emscripten_set_blur_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerFocusEventCallback(target, userData, useCapture, callbackfunc, 12, "blur", targetThread);
-      return 0;
+      return registerFocusEventCallback(target, userData, useCapture, callbackfunc, 12, "blur", targetThread);
     }
 
 
@@ -8407,8 +8398,7 @@ var ASM_CONSTS = {
     }
 
   function _emscripten_set_focus_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerFocusEventCallback(target, userData, useCapture, callbackfunc, 13, "focus", targetThread);
-      return 0;
+      return registerFocusEventCallback(target, userData, useCapture, callbackfunc, 13, "focus", targetThread);
     }
 
   
@@ -8457,7 +8447,7 @@ var ASM_CONSTS = {
         handlerFunc: fullscreenChangeEventhandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   
   
@@ -8465,13 +8455,12 @@ var ASM_CONSTS = {
       if (!JSEvents.fullscreenEnabled()) return -1;
       target = findEventTarget(target);
       if (!target) return -4;
-      registerFullscreenChangeEventCallback(target, userData, useCapture, callbackfunc, 19, "fullscreenchange", targetThread);
   
       // Unprefixed Fullscreen API shipped in Chromium 71 (https://bugs.chromium.org/p/chromium/issues/detail?id=383813)
       // As of Safari 13.0.3 on macOS Catalina 10.15.1 still ships with prefixed webkitfullscreenchange. TODO: revisit this check once Safari ships unprefixed version.
       registerFullscreenChangeEventCallback(target, userData, useCapture, callbackfunc, 19, "webkitfullscreenchange", targetThread);
   
-      return 0;
+      return registerFullscreenChangeEventCallback(target, userData, useCapture, callbackfunc, 19, "fullscreenchange", targetThread);
     }
 
   
@@ -8496,18 +8485,16 @@ var ASM_CONSTS = {
         handlerFunc: gamepadEventHandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   function _emscripten_set_gamepadconnected_callback_on_thread(userData, useCapture, callbackfunc, targetThread) {
       if (!navigator.getGamepads && !navigator.webkitGetGamepads) return -1;
-      registerGamepadEventCallback(2, userData, useCapture, callbackfunc, 26, "gamepadconnected", targetThread);
-      return 0;
+      return registerGamepadEventCallback(2, userData, useCapture, callbackfunc, 26, "gamepadconnected", targetThread);
     }
 
   function _emscripten_set_gamepaddisconnected_callback_on_thread(userData, useCapture, callbackfunc, targetThread) {
       if (!navigator.getGamepads && !navigator.webkitGetGamepads) return -1;
-      registerGamepadEventCallback(2, userData, useCapture, callbackfunc, 27, "gamepaddisconnected", targetThread);
-      return 0;
+      return registerGamepadEventCallback(2, userData, useCapture, callbackfunc, 27, "gamepaddisconnected", targetThread);
     }
 
   
@@ -8550,21 +8537,18 @@ var ASM_CONSTS = {
         handlerFunc: keyEventHandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   function _emscripten_set_keydown_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerKeyEventCallback(target, userData, useCapture, callbackfunc, 2, "keydown", targetThread);
-      return 0;
+      return registerKeyEventCallback(target, userData, useCapture, callbackfunc, 2, "keydown", targetThread);
     }
 
   function _emscripten_set_keypress_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerKeyEventCallback(target, userData, useCapture, callbackfunc, 1, "keypress", targetThread);
-      return 0;
+      return registerKeyEventCallback(target, userData, useCapture, callbackfunc, 1, "keypress", targetThread);
     }
 
   function _emscripten_set_keyup_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerKeyEventCallback(target, userData, useCapture, callbackfunc, 3, "keyup", targetThread);
-      return 0;
+      return registerKeyEventCallback(target, userData, useCapture, callbackfunc, 3, "keyup", targetThread);
     }
 
   
@@ -8625,31 +8609,26 @@ var ASM_CONSTS = {
         handlerFunc: mouseEventHandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   function _emscripten_set_mousedown_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerMouseEventCallback(target, userData, useCapture, callbackfunc, 5, "mousedown", targetThread);
-      return 0;
+      return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 5, "mousedown", targetThread);
     }
 
   function _emscripten_set_mouseenter_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerMouseEventCallback(target, userData, useCapture, callbackfunc, 33, "mouseenter", targetThread);
-      return 0;
+      return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 33, "mouseenter", targetThread);
     }
 
   function _emscripten_set_mouseleave_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerMouseEventCallback(target, userData, useCapture, callbackfunc, 34, "mouseleave", targetThread);
-      return 0;
+      return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 34, "mouseleave", targetThread);
     }
 
   function _emscripten_set_mousemove_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerMouseEventCallback(target, userData, useCapture, callbackfunc, 8, "mousemove", targetThread);
-      return 0;
+      return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 8, "mousemove", targetThread);
     }
 
   function _emscripten_set_mouseup_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerMouseEventCallback(target, userData, useCapture, callbackfunc, 6, "mouseup", targetThread);
-      return 0;
+      return registerMouseEventCallback(target, userData, useCapture, callbackfunc, 6, "mouseup", targetThread);
     }
 
   
@@ -8686,7 +8665,7 @@ var ASM_CONSTS = {
         handlerFunc: pointerlockChangeEventHandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   
   
@@ -8699,11 +8678,10 @@ var ASM_CONSTS = {
   
       target = findEventTarget(target);
       if (!target) return -4;
-      registerPointerlockChangeEventCallback(target, userData, useCapture, callbackfunc, 20, "pointerlockchange", targetThread);
       registerPointerlockChangeEventCallback(target, userData, useCapture, callbackfunc, 20, "mozpointerlockchange", targetThread);
       registerPointerlockChangeEventCallback(target, userData, useCapture, callbackfunc, 20, "webkitpointerlockchange", targetThread);
       registerPointerlockChangeEventCallback(target, userData, useCapture, callbackfunc, 20, "mspointerlockchange", targetThread);
-      return 0;
+      return registerPointerlockChangeEventCallback(target, userData, useCapture, callbackfunc, 20, "pointerlockchange", targetThread);
     }
 
   
@@ -8747,11 +8725,10 @@ var ASM_CONSTS = {
         handlerFunc: uiEventHandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   function _emscripten_set_resize_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerUiEventCallback(target, userData, useCapture, callbackfunc, 10, "resize", targetThread);
-      return 0;
+      return registerUiEventCallback(target, userData, useCapture, callbackfunc, 10, "resize", targetThread);
     }
 
   
@@ -8831,26 +8808,22 @@ var ASM_CONSTS = {
         handlerFunc: touchEventHandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   function _emscripten_set_touchcancel_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerTouchEventCallback(target, userData, useCapture, callbackfunc, 25, "touchcancel", targetThread);
-      return 0;
+      return registerTouchEventCallback(target, userData, useCapture, callbackfunc, 25, "touchcancel", targetThread);
     }
 
   function _emscripten_set_touchend_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerTouchEventCallback(target, userData, useCapture, callbackfunc, 23, "touchend", targetThread);
-      return 0;
+      return registerTouchEventCallback(target, userData, useCapture, callbackfunc, 23, "touchend", targetThread);
     }
 
   function _emscripten_set_touchmove_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerTouchEventCallback(target, userData, useCapture, callbackfunc, 24, "touchmove", targetThread);
-      return 0;
+      return registerTouchEventCallback(target, userData, useCapture, callbackfunc, 24, "touchmove", targetThread);
     }
 
   function _emscripten_set_touchstart_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-      registerTouchEventCallback(target, userData, useCapture, callbackfunc, 22, "touchstart", targetThread);
-      return 0;
+      return registerTouchEventCallback(target, userData, useCapture, callbackfunc, 22, "touchstart", targetThread);
     }
 
   
@@ -8884,15 +8857,14 @@ var ASM_CONSTS = {
         handlerFunc: visibilityChangeEventHandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   
   function _emscripten_set_visibilitychange_callback_on_thread(userData, useCapture, callbackfunc, targetThread) {
     if (!specialHTMLTargets[1]) {
       return -4;
     }
-      registerVisibilityChangeEventCallback(specialHTMLTargets[1], userData, useCapture, callbackfunc, 21, "visibilitychange", targetThread);
-      return 0;
+      return registerVisibilityChangeEventCallback(specialHTMLTargets[1], userData, useCapture, callbackfunc, 21, "visibilitychange", targetThread);
     }
 
   
@@ -8922,14 +8894,14 @@ var ASM_CONSTS = {
         handlerFunc: wheelHandlerFunc,
         useCapture: useCapture
       };
-      JSEvents.registerOrRemoveHandler(eventHandler);
+      return JSEvents.registerOrRemoveHandler(eventHandler);
     }
   
   function _emscripten_set_wheel_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
       target = findEventTarget(target);
+      if (!target) return -4;
       if (typeof target.onwheel != 'undefined') {
-        registerWheelEventCallback(target, userData, useCapture, callbackfunc, 9, "wheel", targetThread);
-        return 0;
+        return registerWheelEventCallback(target, userData, useCapture, callbackfunc, 9, "wheel", targetThread);
       } else {
         return -1;
       }
@@ -9561,6 +9533,7 @@ var ASM_CONSTS = {
 
 
 
+
   var FSNode = /** @constructor */ function(parent, name, mode, rdev) {
     if (!parent) {
       parent = this;  // root node sets parent to itself
@@ -9606,6 +9579,7 @@ var ASM_CONSTS = {
    }
   });
   FS.FSNode = FSNode;
+  FS.createPreloadedFile = FS_createPreloadedFile;
   FS.staticInit();Module["FS_createPath"] = FS.createPath;Module["FS_createDataFile"] = FS.createDataFile;Module["FS_createPreloadedFile"] = FS.createPreloadedFile;Module["FS_unlink"] = FS.unlink;Module["FS_createLazyFile"] = FS.createLazyFile;Module["FS_createDevice"] = FS.createDevice;;
 ERRNO_CODES = {
       'EPERM': 63,
@@ -10243,10 +10217,10 @@ Module["addRunDependency"] = addRunDependency;
 Module["removeRunDependency"] = removeRunDependency;
 Module["FS_createPath"] = FS.createPath;
 Module["FS_createDataFile"] = FS.createDataFile;
-Module["FS_createPreloadedFile"] = FS.createPreloadedFile;
 Module["FS_createLazyFile"] = FS.createLazyFile;
 Module["FS_createDevice"] = FS.createDevice;
 Module["FS_unlink"] = FS.unlink;
+Module["FS_createPreloadedFile"] = FS.createPreloadedFile;
 var missingLibrarySymbols = [
   'inetPton4',
   'inetNtop4',
@@ -10477,6 +10451,9 @@ var unexportedSymbols = [
   'Browser',
   'setMainLoop',
   'wget',
+  'preloadPlugins',
+  'FS_modeStringToFlags',
+  'FS_getMode',
   'FS',
   'MEMFS',
   'TTY',
